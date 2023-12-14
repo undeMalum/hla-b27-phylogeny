@@ -1,3 +1,6 @@
+"""It's just for training. It displays the number of sequences and sequences
+themselves. Here's it's for Europeans."""
+
 import Bio
 from Bio import SeqIO
 
