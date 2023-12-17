@@ -13,6 +13,9 @@ def tree_construction():
     constructor = DistanceTreeConstructor()
     phylo_tree = constructor.upgma(dm)
 
+    for node in phylo_tree.get_nonterminals():
+        node.name = None
+
     with open(PHYLO_TREE_EU, "w") as phylo_tree_eu:
         Phylo.write([phylo_tree], phylo_tree_eu, "phyloxml")
 

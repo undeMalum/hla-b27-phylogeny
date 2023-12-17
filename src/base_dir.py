@@ -13,5 +13,6 @@ if __name__ == "__main__":
           ASIAN_SEQ_FILE,
           JOINED_SEQ_FILE,
           ALIGNED_EU_FILE,
+          PHYLO_TREE_EU,
           sep="\n"
           )
