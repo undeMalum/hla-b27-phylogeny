@@ -27,8 +27,8 @@ def main():
     else:
         with open(JOINED_SEQ_FILE) as join_seq:
             alleles_number = list(Bio.SeqIO.parse(join_seq, "fasta"))
-            print(len(alleles_number))
-            print(alleles_number)
+            print(f"Number of alleles: {len(alleles_number)}")
+            print(f"Alleles: {alleles_number}")
 
 
 if __name__ == "__main__":
