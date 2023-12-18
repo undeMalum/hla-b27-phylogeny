@@ -19,7 +19,7 @@ ALIGNED_EU_FILE_HEAD = BASE_DIR.joinpath("european_alleles_head_aligned.txt")
 
 # Phylogenetic tree
 PHYLO_TREE_EU = BASE_DIR.joinpath("phylo_tree_eu.xml")
-PHYLO_TREE_EU_HEAD = BASE_DIR.joinpath("phylo_tree_eu_head.xml")
+PHYLO_TREE_EU_HEAD = BASE_DIR.joinpath("phylo_tree_eu_head_no_boostrap.xml")
 
 if __name__ == "__main__":
     print(BASE_DIR,

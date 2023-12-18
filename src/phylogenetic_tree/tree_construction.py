@@ -6,7 +6,7 @@ from src.base_dir import ALIGNED_EU_FILE_HEAD, PHYLO_TREE_EU_HEAD, ALIGNED_EU_FI
 
 
 def tree_construction():
-    seq_aln = AlignIO.read(ALIGNED_EU_FILE, "fasta")
+    seq_aln = AlignIO.read(ALIGNED_EU_FILE_HEAD, "fasta")
 
     calc = DistanceCalculator("identity")
     dm = calc.get_distance(seq_aln)
@@ -15,18 +15,18 @@ def tree_construction():
     phylo_tree = constructor.upgma(dm)
 
     for node in phylo_tree.get_nonterminals():
-        # node.name = None
+        node.name = None
         print(node)
 
-    # with open(PHYLO_TREE_EU_HEAD, "w") as phylo_tree_eu:
-    #     Phylo.write([phylo_tree], phylo_tree_eu, "phyloxml")
+    with open(PHYLO_TREE_EU_HEAD, "w") as phylo_tree_eu:
+        Phylo.write([phylo_tree], phylo_tree_eu, "phyloxml")
 
 
 def tree_construction_bootstrap():
     seq_aln = AlignIO.read(ALIGNED_EU_FILE_HEAD, "fasta")
     # msas = bootstrap(seq_aln, 100)
 
-    calculator = DistanceCalculator("identity")
+    calculator = DistanceCalculator("blosum62")
     constructor = DistanceTreeConstructor(calculator)
     # trees = next(bootstrap_trees(seq_aln, 100, constructor))
 
