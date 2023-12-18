@@ -1,12 +1,10 @@
 from Bio import Phylo
-import matplotlib
-import matplotlib.pyplot as plt
 
-from src.base_dir import PHYLO_TREE_EU
+from src.base_dir import PHYLO_TREE_EU_HEAD
 
 
 def display_tree():
-    tree = Phylo.read(PHYLO_TREE_EU, "phyloxml")
+    tree = Phylo.read(PHYLO_TREE_EU_HEAD, "phyloxml")
     tree.ladderize()  # Flip branches so deeper clades are displayed at top
     Phylo.draw(tree)
 
