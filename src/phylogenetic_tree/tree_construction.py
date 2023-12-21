@@ -7,9 +7,11 @@ from Bio import AlignIO, Phylo
 
 from src.base_dir import (
     ALIGNED_EU_FILE_HEAD,
+    ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE,
     PHYLO_TREE_EU_HEAD_NO_BOOTSTRAP,
     PHYLO_TREE_EU_HEAD_IDENTITY,
-    PHYLO_TREE_EU_HEAD_BLOSUM
+    PHYLO_TREE_EU_HEAD_BLOSUM,
+    PHYLO_JOINED_NO_BOOTSTRAP
 )
 
 
@@ -44,14 +46,15 @@ def main():
     trees_dict = {
         "1": PHYLO_TREE_EU_HEAD_BLOSUM,
         "2": PHYLO_TREE_EU_HEAD_IDENTITY,
-        "3": PHYLO_TREE_EU_HEAD_NO_BOOTSTRAP
+        "3": PHYLO_TREE_EU_HEAD_NO_BOOTSTRAP,
+        "4": PHYLO_JOINED_NO_BOOTSTRAP
     }
 
     tree_algorithm = input("""
 What kind of tree do you want to construct?
 > """)
-    seq_aln = AlignIO.read(ALIGNED_EU_FILE_HEAD, "fasta")
-    tree_construction(trees_dict[tree_algorithm], seq_aln)
+    seq_aln = AlignIO.read(ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE, "fasta")
+    tree_construction(seq_aln, trees_dict[tree_algorithm])
 
 
 if __name__ == "__main__":

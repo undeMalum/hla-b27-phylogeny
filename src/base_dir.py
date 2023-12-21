@@ -18,8 +18,10 @@ JOINED_SEQ_HEAD_MODIFIED_FILE = SEQUENCES.joinpath("joined_alleles_head.txt")
 # Alignment
 ALIGNED_EU_FILE = SEQUENCES.joinpath("aligned_european_alleles.txt")
 ALIGNED_EU_FILE_HEAD = SEQUENCES.joinpath("european_alleles_head_aligned.txt")
+ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE = SEQUENCES.joinpath("joined_alleles_head_alignment.txt")
 
 # Phylogenetic tree
+PHYLO_JOINED_NO_BOOTSTRAP = PHYLO_TREES.joinpath("joined_alleles_head_no_boostrap.xml")
 PHYLO_TREE_EU_HEAD_BLOSUM = PHYLO_TREES.joinpath("phylo_tree_eu_head_blosum62.xml")
 PHYLO_TREE_EU_HEAD_IDENTITY = PHYLO_TREES.joinpath("phylo_tree_eu_head_identity.xml")
 PHYLO_TREE_EU_HEAD_NO_BOOTSTRAP = PHYLO_TREES.joinpath("phylo_tree_eu_head_no_boostrap.xml")

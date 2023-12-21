@@ -4,15 +4,15 @@ from Bio import SeqIO
 from src.base_dir import EU_SEQ_FILE, EU_SEQ_HEAD_MODIFIED_FILE
 
 
-def modify_headings(seq_list: list[Bio.SeqIO.SeqRecord]):
+def modify_headings(seq_list: list[Bio.SeqIO.SeqRecord], add=""):
     """
     Remove sequence and allele ID from the heading.
     Leave only the allele name.
     """
 
     for seq in seq_list:
-        seq.id = seq.id.split("|")[1]
-        seq.name = seq.name.split("|")[1]
+        seq.id = seq.id.split("|")[1] + add
+        seq.name = seq.name.split("|")[1] + add
 
     return seq_list
 

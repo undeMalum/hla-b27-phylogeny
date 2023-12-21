@@ -5,7 +5,8 @@ from Bio import Phylo
 from src.base_dir import (
     PHYLO_TREE_EU_HEAD_BLOSUM,
     PHYLO_TREE_EU_HEAD_IDENTITY,
-    PHYLO_TREE_EU_HEAD_NO_BOOTSTRAP
+    PHYLO_TREE_EU_HEAD_NO_BOOTSTRAP,
+    PHYLO_JOINED_NO_BOOTSTRAP
 )
 
 
@@ -19,7 +20,8 @@ def main():
     trees_dict = {
         "1": PHYLO_TREE_EU_HEAD_BLOSUM,
         "2": PHYLO_TREE_EU_HEAD_IDENTITY,
-        "3": PHYLO_TREE_EU_HEAD_NO_BOOTSTRAP
+        "3": PHYLO_TREE_EU_HEAD_NO_BOOTSTRAP,
+        "4": PHYLO_JOINED_NO_BOOTSTRAP
     }
 
     try:

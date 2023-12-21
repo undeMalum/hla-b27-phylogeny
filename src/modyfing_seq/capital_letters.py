@@ -1,9 +1,9 @@
 import Bio
 from Bio import AlignIO
 
-from src.base_dir import ALIGNED_EU_FILE_HEAD
+from src.base_dir import ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE
 
-with open(ALIGNED_EU_FILE_HEAD) as seq_file:
+with open(ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE) as seq_file:
     seq_object = Bio.AlignIO.read(seq_file, "fasta")
     print(seq_object)
 
@@ -12,4 +12,4 @@ with open(ALIGNED_EU_FILE_HEAD) as seq_file:
 
     print(seq_object)
 
-    Bio.AlignIO.write([seq_object], ALIGNED_EU_FILE_HEAD, "fasta")
+    Bio.AlignIO.write([seq_object], ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE, "fasta")
