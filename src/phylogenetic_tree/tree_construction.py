@@ -49,12 +49,30 @@ def main():
         "3": PHYLO_TREE_EU_HEAD_NO_BOOTSTRAP,
         "4": PHYLO_JOINED_NO_BOOTSTRAP
     }
+    seq_dict = {
+        "1": ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE,
+        "2": ALIGNED_EU_FILE_HEAD
+    }
 
+    seq_choice = input("""
+Which sequence would you like to use?
+> """)
     tree_algorithm = input("""
 What kind of tree do you want to construct?
 > """)
-    seq_aln = AlignIO.read(ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE, "fasta")
-    tree_construction(seq_aln, trees_dict[tree_algorithm])
+    boostrap = input("""
+Do you wish to calculate bootstrap values?
+> """)
+    try:
+        seq_aln = AlignIO.read(seq_dict[seq_choice], "fasta")
+        if boostrap.lower() == "yes":
+            tree_construction(seq_aln, trees_dict[tree_algorithm])
+        elif boostrap.lower() == "no":
+            tree_construction_bootstrap(seq_aln, trees_dict[tree_algorithm])
+    except KeyError:
+        print("Wrong key.")
+    else:
+        print("Tree constructed successfully!")
 
 
 if __name__ == "__main__":
