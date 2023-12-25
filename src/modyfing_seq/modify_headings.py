@@ -4,10 +4,17 @@ from Bio import SeqIO
 from src.base_dir import EU_SEQ_FILE, EU_SEQ_HEAD_MODIFIED_FILE
 
 
-def modify_headings(seq_list: list[Bio.SeqIO.SeqRecord], add=""):
+def modify_headings(seq_list: list[Bio.SeqIO.SeqRecord], add: str = "") -> list[Bio.SeqIO.SeqRecord]:
     """
     Remove sequence and allele ID from the heading.
     Leave only the allele name.
+
+    e.g.
+    HLA00220|B*27:01|299 ---> B*27:01 HLA00220|B*27:01|2991
+
+    or (if parameter "add" is supplied)
+    add = "E"
+    HLA00220|B*27:01|299 ---> B*27:01E HLA00220|B*27:01|2991
     """
 
     for seq in seq_list:
@@ -17,7 +24,7 @@ def modify_headings(seq_list: list[Bio.SeqIO.SeqRecord], add=""):
     return seq_list
 
 
-def main():
+def main() -> None:
     file_format = "fasta"
     eu_with_head = list(Bio.SeqIO.parse(EU_SEQ_FILE, file_format))
 

@@ -8,28 +8,30 @@ from Bio import SeqIO
 from src.base_dir import (
     ASIAN_SEQ_FILE,
     EU_SEQ_FILE,
-    JOINED_SEQ_FILE,
     JOINED_SEQ_HEAD_MODIFIED_FILE,
-    EU_SEQ_HEAD_MODIFIED_FILE
 )
 from src.modyfing_seq import modify_headings
 
 
-def join_allele_regions(out_dir: Path, file_format: str):
+def join_allele_regions(out_dir: Path, file_format: str) -> None:
     with open(out_dir, "w") as joined_seq, open(ASIAN_SEQ_FILE, "r") as asian_seq_it,\
             open(EU_SEQ_FILE, "r") as eu_seq_it:
+
+        # Process Asian sequences
         asian_seq_list = list(Bio.SeqIO.parse(asian_seq_it, file_format))
         asian_seq_list_modified_header = modify_headings.modify_headings(asian_seq_list, "A")
 
+        # Process European sequences
         eu_seq_list = list(Bio.SeqIO.parse(eu_seq_it, file_format))
         eu_seq_list_modified_header = modify_headings.modify_headings(eu_seq_list, "E")
 
+        # Join together the list of Asian and European sequences
         joined_seq_list = eu_seq_list_modified_header + asian_seq_list_modified_header
 
         Bio.SeqIO.write(joined_seq_list, joined_seq, file_format)
 
 
-def main():
+def main() -> None:
     chosen_file_format = "fasta"
 
     join_allele_regions(JOINED_SEQ_HEAD_MODIFIED_FILE, chosen_file_format)

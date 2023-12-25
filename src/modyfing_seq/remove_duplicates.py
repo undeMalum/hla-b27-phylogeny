@@ -1,39 +1,39 @@
 import Bio
 from Bio import SeqIO
 
+
 from src.base_dir import ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE
 
 
-def modify_headings(seq_list: list[Bio.SeqIO.SeqRecord]):
+def remove_duplicate_alleles(seq_list: list[Bio.SeqIO.SeqRecord]) -> list[Bio.SeqIO.SeqRecord]:
     """
-    Remove sequence and allele ID from the heading.
-    Leave only the allele name.
+    If there are two or more sequences of the same subtype, like so:
+
+    B*27:02:01:01 and B*27:02:01:04
+
+    leave only the first one that appears as B*27:02.
+
     """
     list_headings = []
     list_sequences = []
     for seq in seq_list:
         if seq.id not in list_headings:
-            print(seq.id)
             list_headings.append(seq.id)
             list_sequences.append(seq)
 
     return list_sequences
 
 
-def main():
+def main() -> None:
     file_format = "fasta"
-    eu_with_head = list(Bio.SeqIO.parse(ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE, file_format))
+    with_duplicates = list(Bio.SeqIO.parse(ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE, file_format))
 
-    print(len(eu_with_head))
+    without_duplicates = remove_duplicate_alleles(with_duplicates)
 
-    eu_without_head = modify_headings(eu_with_head)
+    with open(ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE, "w") as out:
+        Bio.SeqIO.write(without_duplicates, out, file_format)
 
-    print(len(eu_without_head))
-
-    # with open(EU_SEQ_HEAD_MODIFIED_FILE, "w") as out:
-    #     Bio.SeqIO.write(eu_without_head, out, file_format)
-
-    print("Headings modifies")
+    print("Duplicates removed.")
 
 
 if __name__ == "__main__":

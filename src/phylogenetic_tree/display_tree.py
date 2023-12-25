@@ -10,13 +10,13 @@ from src.base_dir import (
 )
 
 
-def display_tree(tree: Path):
+def display_tree(tree: Path) -> None:
     tree = Phylo.read(tree, "phyloxml")
     tree.ladderize()  # Flip branches so deeper clades are displayed at top
     Phylo.draw(tree)
 
 
-def main():
+def main() -> None:
     trees_dict = {
         "1": PHYLO_TREE_EU_HEAD_BLOSUM,
         "2": PHYLO_TREE_EU_HEAD_IDENTITY,

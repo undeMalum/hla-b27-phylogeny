@@ -15,7 +15,7 @@ from src.base_dir import (
 )
 
 
-def remove_nodes_name_and_save_tree(tree: Tree, file: Path):
+def remove_nodes_name_and_save_tree(tree: Tree, file: Path) -> None:
     for node in tree.get_nonterminals():
         node.name = None
 
@@ -23,7 +23,7 @@ def remove_nodes_name_and_save_tree(tree: Tree, file: Path):
         Phylo.write([tree], phylo_tree_eu, "phyloxml")
 
 
-def tree_construction(seq_aln: AlignIO.MultipleSeqAlignment, file_tree: Path):
+def tree_construction(seq_aln: AlignIO.MultipleSeqAlignment, file_tree: Path) -> None:
     calc = DistanceCalculator("identity")
     dm = calc.get_distance(seq_aln)
 
@@ -33,7 +33,7 @@ def tree_construction(seq_aln: AlignIO.MultipleSeqAlignment, file_tree: Path):
     remove_nodes_name_and_save_tree(phylo_tree, file_tree)
 
 
-def tree_construction_bootstrap(seq_aln: AlignIO.MultipleSeqAlignment, file_tree: Path):
+def tree_construction_bootstrap(seq_aln: AlignIO.MultipleSeqAlignment, file_tree: Path) -> None:
     calculator = DistanceCalculator("blosum62")
     constructor = DistanceTreeConstructor(calculator)
 
@@ -42,7 +42,7 @@ def tree_construction_bootstrap(seq_aln: AlignIO.MultipleSeqAlignment, file_tree
     remove_nodes_name_and_save_tree(consensus_tree, file_tree)
 
 
-def main():
+def main() -> None:
     trees_dict = {
         "1": PHYLO_TREE_EU_HEAD_BLOSUM,
         "2": PHYLO_TREE_EU_HEAD_IDENTITY,
