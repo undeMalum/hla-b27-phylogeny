@@ -8,11 +8,8 @@ ALIGNMENTS = BASE_DIR.joinpath("alignments")
 
 
 def get_files(path: pathlib.Path) -> dict[str, str]:
-    files = []
-    for (dirpath, dirnames, filenames) in os.walk(path):
-        files.extend(filenames)
 
-    return {str(numb+1): file for numb, file in enumerate(files)}
+    return {str(numb+1): file for numb, file in enumerate(os.listdir(path))}
 
 
 if __name__ == "__main__":
