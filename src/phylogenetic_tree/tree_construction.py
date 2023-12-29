@@ -5,14 +5,7 @@ from Bio.Phylo.Consensus import bootstrap_consensus, majority_consensus
 from Bio.Phylo.BaseTree import Tree
 from Bio import AlignIO, Phylo
 
-from src.base_dir import (
-    ALIGNED_EU_FILE_HEAD,
-    ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE,
-    PHYLO_TREE_EU_HEAD_NO_BOOTSTRAP,
-    PHYLO_TREE_EU_HEAD_IDENTITY,
-    PHYLO_TREE_EU_HEAD_BLOSUM,
-    PHYLO_JOINED_NO_BOOTSTRAP
-)
+from src.base_dir import get_files, ALIGNMENTS, PHYLO_TREES
 
 
 def remove_nodes_name_and_save_tree(tree: Tree, file: Path) -> None:
@@ -33,8 +26,8 @@ def tree_construction(seq_aln: AlignIO.MultipleSeqAlignment, file_tree: Path) ->
     remove_nodes_name_and_save_tree(phylo_tree, file_tree)
 
 
-def tree_construction_bootstrap(seq_aln: AlignIO.MultipleSeqAlignment, file_tree: Path) -> None:
-    calculator = DistanceCalculator("blosum62")
+def tree_construction_bootstrap(dist_calc: str, seq_aln: AlignIO.MultipleSeqAlignment, file_tree: Path) -> None:
+    calculator = DistanceCalculator(dist_calc)
     constructor = DistanceTreeConstructor(calculator)
 
     consensus_tree = bootstrap_consensus(seq_aln, 100, constructor, majority_consensus)
@@ -43,32 +36,46 @@ def tree_construction_bootstrap(seq_aln: AlignIO.MultipleSeqAlignment, file_tree
 
 
 def main() -> None:
-    trees_dict = {
-        "1": PHYLO_TREE_EU_HEAD_BLOSUM,
-        "2": PHYLO_TREE_EU_HEAD_IDENTITY,
-        "3": PHYLO_TREE_EU_HEAD_NO_BOOTSTRAP,
-        "4": PHYLO_JOINED_NO_BOOTSTRAP
-    }
-    seq_dict = {
-        "1": ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE,
-        "2": ALIGNED_EU_FILE_HEAD
-    }
+    files = get_files(ALIGNMENTS)
+    for numb, file in files.items():
+        print(f"{numb}: {file}")
 
     seq_choice = input("""
 Which sequence would you like to use?
 > """)
-    tree_algorithm = input("""
-What kind of tree do you want to construct?
+    tree_file = input("""
+Give the name for the file in which the
+tree will be saved
 > """)
     boostrap = input("""
-Do you wish to calculate bootstrap values?
-> """)
+Do you wish to calculate bootstrap values (n/y)?
+> """).lower()
+
+    if Path(tree_file).suffix != ".txt":
+        print("Incorrect file extension for the tree.")
+        return
+
     try:
-        seq_aln = AlignIO.read(seq_dict[seq_choice], "fasta")
-        if boostrap.lower() == "yes":
-            tree_construction(seq_aln, trees_dict[tree_algorithm])
-        elif boostrap.lower() == "no":
-            tree_construction_bootstrap(seq_aln, trees_dict[tree_algorithm])
+        seq_aln = AlignIO.read(ALIGNMENTS / files[seq_choice], "fasta")
+        if boostrap == "y":
+            dist_calc_dict = {
+                "1": "identity",
+                "2": "blosum62",
+            }
+            dist_calc = input("""
+Which parameter do you want to use?
+1: identity
+2: blosum62
+> """)
+            tree_construction_bootstrap(
+                dist_calc_dict[dist_calc],
+                seq_aln,
+                PHYLO_TREES / tree_file
+            )
+        elif boostrap == "n":
+            tree_construction(seq_aln, PHYLO_TREES / tree_file)
+        else:
+            print("Incorrect answer for bootstrap.")
     except KeyError:
         print("Wrong key.")
     else:

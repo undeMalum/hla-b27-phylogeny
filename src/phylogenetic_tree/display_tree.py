@@ -2,12 +2,7 @@ from pathlib import Path
 
 from Bio import Phylo
 
-from src.base_dir import (
-    PHYLO_TREE_EU_HEAD_BLOSUM,
-    PHYLO_TREE_EU_HEAD_IDENTITY,
-    PHYLO_TREE_EU_HEAD_NO_BOOTSTRAP,
-    PHYLO_JOINED_NO_BOOTSTRAP
-)
+from src.base_dir import get_files, PHYLO_TREES
 
 
 def display_tree(tree: Path) -> None:
@@ -17,20 +12,16 @@ def display_tree(tree: Path) -> None:
 
 
 def main() -> None:
-    trees_dict = {
-        "1": PHYLO_TREE_EU_HEAD_BLOSUM,
-        "2": PHYLO_TREE_EU_HEAD_IDENTITY,
-        "3": PHYLO_TREE_EU_HEAD_NO_BOOTSTRAP,
-        "4": PHYLO_JOINED_NO_BOOTSTRAP
-    }
-
+    files = get_files(PHYLO_TREES)
+    for numb, file in files.items():
+        print(f"{numb}: {file}")
+    tree = input(f"""
+Which tree do you want to display?
+> """)
     try:
-        tree = input(f"""
-    Which tree do you want to display?
-    > """)
-        display_tree(trees_dict[tree])
+        display_tree(PHYLO_TREES / files[tree])
     except KeyError:
-        print("Wrong key")
+        print("Wrong key.")
     else:
         print("Tree displayed successfully.")
 

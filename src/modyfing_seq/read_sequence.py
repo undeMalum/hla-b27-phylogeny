@@ -1,9 +1,9 @@
 import Bio
 from Bio import SeqIO
 
-from src.base_dir import EU_SEQ_FILE
+from src.base_dir import SEQUENCES
 
-with open(EU_SEQ_FILE) as seq_file:
+with open(SEQUENCES / "european_alleles.txt") as seq_file:
     seq_object = Bio.SeqIO.parse(seq_file, "fasta")
     # print(seq_object)
     repeated = []

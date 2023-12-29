@@ -4,9 +4,9 @@ themselves. Here's it's for Europeans."""
 import Bio
 from Bio import SeqIO
 
-from src.base_dir import EU_SEQ_FILE
+from src.base_dir import SEQUENCES
 
-with open(EU_SEQ_FILE) as seq_file:
+with open(SEQUENCES / "european_alleles.txt") as seq_file:
     seq_object = list(Bio.SeqIO.parse(seq_file, "fasta"))
     # print(len(seq_object), seq_object[0].name, seq_object[0].id[9:16], sep="\n")
     # print(seq_object[0].seq)

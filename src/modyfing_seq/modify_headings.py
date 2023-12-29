@@ -1,7 +1,9 @@
+from pathlib import Path
+
 import Bio
 from Bio import SeqIO
 
-from src.base_dir import EU_SEQ_FILE, EU_SEQ_HEAD_MODIFIED_FILE
+from src.base_dir import get_files, SEQUENCES
 
 
 def modify_headings(seq_list: list[Bio.SeqIO.SeqRecord], add: str = "") -> list[Bio.SeqIO.SeqRecord]:
@@ -25,15 +27,32 @@ def modify_headings(seq_list: list[Bio.SeqIO.SeqRecord], add: str = "") -> list[
 
 
 def main() -> None:
+    files = get_files(SEQUENCES)
+    for numb, file in files.items():
+        print(f"{numb}: {file}")
+    seq_old_head = input("""
+In which sequence do you want to modify the headings?
+> """)
+    seq_new_head = input("""
+Provide the name of the file in which you want to
+store the sequence with the new headings.
+> """)
+
+    if Path(seq_new_head).suffix != ".txt":
+        print("Incorrect file extension for the tree.")
+        return
+
     file_format = "fasta"
-    eu_with_head = list(Bio.SeqIO.parse(EU_SEQ_FILE, file_format))
 
-    eu_without_head = modify_headings(eu_with_head)
-
-    with open(EU_SEQ_HEAD_MODIFIED_FILE, "w") as out:
-        Bio.SeqIO.write(eu_without_head, out, file_format)
-
-    print("Headings modifies")
+    try:
+        eu_with_head = list(Bio.SeqIO.parse(SEQUENCES / files[seq_old_head], file_format))
+        eu_without_head = modify_headings(eu_with_head)
+        with open(SEQUENCES / seq_new_head, "w") as out:
+            Bio.SeqIO.write(eu_without_head, out, file_format)
+    except KeyError:
+        print("Wrong key.")
+    else:
+        print("Headings have been modified.")
 
 
 if __name__ == "__main__":

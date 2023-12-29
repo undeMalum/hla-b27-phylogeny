@@ -3,7 +3,7 @@ from pathlib import Path
 import Bio
 from Bio import AlignIO
 
-from src.base_dir import ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE, ALIGNED_EU_FILE_HEAD
+from src.base_dir import get_files, ALIGNMENTS
 
 
 def make_capital_letters(aligned_seq: Path) -> None:
@@ -17,15 +17,14 @@ def make_capital_letters(aligned_seq: Path) -> None:
 
 
 def main() -> None:
-    aligned_seq_dict = {
-        "1": ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE,
-        "2": ALIGNED_EU_FILE_HEAD
-    }
+    files = get_files(ALIGNMENTS)
+    for numb, file in files.items():
+        print(f"{numb}: {file}")
     aligned_seq = input("""
 In which sequence do you want to make capital letters?
 > """)
     try:
-        make_capital_letters(aligned_seq_dict[aligned_seq])
+        make_capital_letters(ALIGNMENTS / files[aligned_seq])
     except KeyError:
         print("Wrong key.")
     else:

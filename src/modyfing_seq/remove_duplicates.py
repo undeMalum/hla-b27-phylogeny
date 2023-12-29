@@ -2,7 +2,7 @@ import Bio
 from Bio import SeqIO
 
 
-from src.base_dir import ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE
+from src.base_dir import get_files, ALIGNMENTS
 
 
 def remove_duplicate_alleles(seq_list: list[Bio.SeqIO.SeqRecord]) -> list[Bio.SeqIO.SeqRecord]:
@@ -25,15 +25,23 @@ def remove_duplicate_alleles(seq_list: list[Bio.SeqIO.SeqRecord]) -> list[Bio.Se
 
 
 def main() -> None:
+    files = get_files(ALIGNMENTS)
+    for numb, file in files.items():
+        print(f"{numb}: {file}")
+
+    aligned_seq = input("""
+From which sequence do you want to remove duplicate alleles?
+> """)
     file_format = "fasta"
-    with_duplicates = list(Bio.SeqIO.parse(ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE, file_format))
-
-    without_duplicates = remove_duplicate_alleles(with_duplicates)
-
-    with open(ALIGNED_JOINED_SEQ_HEAD_MODIFIED_FILE, "w") as out:
-        Bio.SeqIO.write(without_duplicates, out, file_format)
-
-    print("Duplicates removed.")
+    try:
+        with_duplicates = list(Bio.SeqIO.parse(ALIGNMENTS / files[aligned_seq], file_format))
+        without_duplicates = remove_duplicate_alleles(with_duplicates)
+        with open(ALIGNMENTS / files[aligned_seq], "w") as out:
+            Bio.SeqIO.write(without_duplicates, out, file_format)
+    except KeyError:
+        print("Wrong key.")
+    else:
+        print("Duplicates removed.")
 
 
 if __name__ == "__main__":
