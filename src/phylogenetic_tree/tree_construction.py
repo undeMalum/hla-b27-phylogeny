@@ -46,14 +46,15 @@ Which sequence would you like to use?
     tree_file = input("""
 Give the name for the file in which the
 tree will be saved
-> """)
+> """) + ".xml"
+
+    if Path(tree_file).suffix != ".xml":
+        print("Don't provide file extension.")
+        return
+
     boostrap = input("""
 Do you wish to calculate bootstrap values (n/y)?
 > """).lower()
-
-    if Path(tree_file).suffix != ".txt":
-        print("Incorrect file extension for the tree.")
-        return
 
     try:
         seq_aln = AlignIO.read(ALIGNMENTS / files[seq_choice], "fasta")

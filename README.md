@@ -13,7 +13,8 @@ Candidate number: kyz635
 - `phylo_trees`: contains the trees I created
   - `phyloxml`: trees in [phyloxml](http://www.phyloxml.org) format
   - `png` trees as png images
-- `sequences`: contains all sequences - downloaded, modified, and aligned
+- `sequences`: contains non-aligned sequences - both downloaded and modified
+- `alignments`: contains aligned sequences
 - `src`: contains the code I used to process sequences and create trees
   - `modyfing_sequences`: code for preprocessing data: changing headings, joining sequences, making letters capital etc.
   - `phylogenetic_tree`: code for creating and displaying trees
