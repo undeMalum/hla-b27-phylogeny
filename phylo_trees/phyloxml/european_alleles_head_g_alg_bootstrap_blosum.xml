@@ -1,0 +1,250 @@
+<phyloxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phyloxml.org" xsi:schemaLocation="http://www.phyloxml.org http://www.phyloxml.org/1.10/phyloxml.xsd">
+  <phylogeny rooted="true">
+    <clade>
+      <clade>
+        <name>B*27:05:32</name>
+        <branch_length>0.0003789127152762907</branch_length>
+      </clade>
+      <clade>
+        <name>B*27:05:18:01</name>
+        <branch_length>0.00038623481473182384</branch_length>
+      </clade>
+      <clade>
+        <branch_length>1.0800321605517896E-05</branch_length>
+        <confidence type="unknown">100.0</confidence>
+        <clade>
+          <branch_length>1.6345285968750928E-05</branch_length>
+          <confidence type="unknown">100.0</confidence>
+          <clade>
+            <branch_length>2.832971361494167E-05</branch_length>
+            <confidence type="unknown">100.0</confidence>
+            <clade>
+              <name>B*27:05:03</name>
+              <branch_length>0.00021049289882092205</branch_length>
+            </clade>
+            <clade>
+              <branch_length>2.8243552065323144E-05</branch_length>
+              <confidence type="unknown">100.0</confidence>
+              <clade>
+                <branch_length>1.2289555193636492E-05</branch_length>
+                <confidence type="unknown">100.0</confidence>
+                <clade>
+                  <name>B*27:263N</name>
+                  <branch_length>0.0002570707805908351</branch_length>
+                </clade>
+                <clade>
+                  <branch_length>1.384183624377768E-05</branch_length>
+                  <confidence type="unknown">100.0</confidence>
+                  <clade>
+                    <branch_length>2.7371622726995986E-05</branch_length>
+                    <confidence type="unknown">100.0</confidence>
+                    <clade>
+                      <name>B*27:05:02:34</name>
+                      <branch_length>0.00022647188619944432</branch_length>
+                    </clade>
+                    <clade>
+                      <branch_length>9.724830423886797E-06</branch_length>
+                      <confidence type="unknown">100.0</confidence>
+                      <clade>
+                        <branch_length>0.00011286903003428725</branch_length>
+                        <confidence type="unknown">100.0</confidence>
+                        <clade>
+                          <name>B*27:148</name>
+                          <branch_length>0.0005936746024613397</branch_length>
+                        </clade>
+                        <clade>
+                          <branch_length>8.517455962620705E-05</branch_length>
+                          <confidence type="unknown">100.0</confidence>
+                          <clade>
+                            <name>B*27:05:31</name>
+                            <branch_length>0.00011087129002617453</branch_length>
+                          </clade>
+                          <clade>
+                            <name>B*27:05:02:39</name>
+                            <branch_length>0.0001843229477822637</branch_length>
+                          </clade>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <branch_length>6.498574794080502E-05</branch_length>
+                        <confidence type="unknown">100.0</confidence>
+                        <clade>
+                          <name>B*27:05:02:06</name>
+                          <branch_length>0.00034954340994174874</branch_length>
+                        </clade>
+                        <clade>
+                          <branch_length>8.076102118698749E-05</branch_length>
+                          <confidence type="unknown">100.0</confidence>
+                          <clade>
+                            <name>B*27:05:52</name>
+                            <branch_length>0.00036714399684736063</branch_length>
+                          </clade>
+                          <clade>
+                            <name>B*27:05:07</name>
+                            <branch_length>0.0004474725515059923</branch_length>
+                          </clade>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <branch_length>2.4803140076597175E-05</branch_length>
+                    <confidence type="unknown">100.0</confidence>
+                    <clade>
+                      <name>B*27:05:05</name>
+                      <branch_length>0.00036132368939372384</branch_length>
+                    </clade>
+                    <clade>
+                      <name>B*27:05:02:35</name>
+                      <branch_length>6.11743301468054E-05</branch_length>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <branch_length>4.094804999576574E-05</branch_length>
+                <confidence type="unknown">100.0</confidence>
+                <clade>
+                  <name>B*27:10</name>
+                  <branch_length>0.00017979248329971664</branch_length>
+                </clade>
+                <clade>
+                  <name>B*27:05:02:36</name>
+                  <branch_length>6.664647377061073E-05</branch_length>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+          <clade>
+            <branch_length>8.516670589206907E-05</branch_length>
+            <confidence type="unknown">100.0</confidence>
+            <clade>
+              <branch_length>6.189983079714444E-05</branch_length>
+              <confidence type="unknown">100.0</confidence>
+              <clade>
+                <name>B*27:09</name>
+                <branch_length>0.000399402645136992</branch_length>
+              </clade>
+              <clade>
+                <branch_length>0.00030499610612613764</branch_length>
+                <confidence type="unknown">100.0</confidence>
+                <clade>
+                  <name>B*27:14</name>
+                  <branch_length>0.003036935330728207</branch_length>
+                </clade>
+                <clade>
+                  <branch_length>0.00039397810826200647</branch_length>
+                  <confidence type="unknown">100.0</confidence>
+                  <clade>
+                    <name>B*27:70</name>
+                    <branch_length>0.0005137583919055228</branch_length>
+                  </clade>
+                  <clade>
+                    <branch_length>0.00031292334767126217</branch_length>
+                    <confidence type="unknown">100.0</confidence>
+                    <clade>
+                      <name>B*27:32</name>
+                      <branch_length>8.313721838351966E-05</branch_length>
+                    </clade>
+                    <clade>
+                      <name>B*27:07:01</name>
+                      <branch_length>0.0021124620370219474</branch_length>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <branch_length>1.0113467676503364E-05</branch_length>
+              <confidence type="unknown">100.0</confidence>
+              <clade>
+                <name>B*27:101</name>
+                <branch_length>0.000302658193358559</branch_length>
+              </clade>
+              <clade>
+                <branch_length>5.9201852151472715E-05</branch_length>
+                <confidence type="unknown">100.0</confidence>
+                <clade>
+                  <name>B*27:05:02:38</name>
+                  <branch_length>6.518970076466006E-05</branch_length>
+                </clade>
+                <clade>
+                  <name>B*27:03</name>
+                  <branch_length>0.0003568937029158909</branch_length>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <branch_length>4.386140689966372E-05</branch_length>
+          <confidence type="unknown">100.0</confidence>
+          <clade>
+            <name>B*27:05:02:01</name>
+            <branch_length>7.239371253559007E-05</branch_length>
+          </clade>
+          <clade>
+            <branch_length>0.00031083103442514423</branch_length>
+            <confidence type="unknown">100.0</confidence>
+            <clade>
+              <branch_length>0.0007599754257178654</branch_length>
+              <confidence type="unknown">100.0</confidence>
+              <clade>
+                <name>B*27:01</name>
+                <branch_length>0.0010783216033206375</branch_length>
+              </clade>
+              <clade>
+                <branch_length>0.0004210018997996138</branch_length>
+                <confidence type="unknown">100.0</confidence>
+                <clade>
+                  <name>B*27:02:01:01</name>
+                  <branch_length>0.00011799890001247277</branch_length>
+                </clade>
+                <clade>
+                  <branch_length>7.432806182407475E-05</branch_length>
+                  <confidence type="unknown">100.0</confidence>
+                  <clade>
+                    <name>B*27:30</name>
+                    <branch_length>0.0017349487560073102</branch_length>
+                  </clade>
+                  <clade>
+                    <branch_length>0.0001259184914087099</branch_length>
+                    <confidence type="unknown">100.0</confidence>
+                    <clade>
+                      <name>B*27:02:06</name>
+                      <branch_length>0.00030105219671102573</branch_length>
+                    </clade>
+                    <clade>
+                      <name>B*27:02:01:04</name>
+                      <branch_length>0.00044125957423272306</branch_length>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <branch_length>0.0005988914600953203</branch_length>
+              <confidence type="unknown">100.0</confidence>
+              <clade>
+                <name>B*27:23</name>
+                <branch_length>0.0023722539232922052</branch_length>
+              </clade>
+              <clade>
+                <branch_length>0.000845225904273999</branch_length>
+                <confidence type="unknown">100.0</confidence>
+                <clade>
+                  <name>B*27:12:01:01</name>
+                  <branch_length>0.0009891857161594278</branch_length>
+                </clade>
+                <clade>
+                  <name>B*27:08</name>
+                  <branch_length>1.4686361855794326E-05</branch_length>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </clade>
+  </phylogeny>
+</phyloxml>

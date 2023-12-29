@@ -80,7 +80,7 @@ Which parameter do you want to use?
     except KeyError:
         print("Wrong key.")
     else:
-        print("Tree constructed successfully!")
+        print("Tree has been constructed successfully!")
 
 
 if __name__ == "__main__":
