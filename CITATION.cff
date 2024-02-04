@@ -1,0 +1,23 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: HLA-B7 Phylogeny
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Mateusz Konat
+    email: mateusz.konat.py@gmail.com
+repository-code: 'https://github.com/undeMalum/hla-b27-phylogeny'
+abstract: >-
+  This repository contains the code for my research on
+  inferring the likelihood of ankylosing spondylitis based
+  on the given clade of the HLA-B27 phylogenetic tree.
+keywords:
+  - python
+  - phylogeny
+  - hla-b27
+license: MIT
+commit: ' b3fdcc3'
