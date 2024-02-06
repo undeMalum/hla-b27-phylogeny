@@ -14,7 +14,7 @@ with open(SEQUENCES / "european_alleles.txt") as seq_file:
     # print(temp)
     l = []
     for seq in seq_object:
-        temp = seq.name.split("|")[1][:7]
+        temp = ":".join(seq.name.split("|")[1].split(":")[:2])
         if temp not in l:
             l.append(temp)
             print(temp)
